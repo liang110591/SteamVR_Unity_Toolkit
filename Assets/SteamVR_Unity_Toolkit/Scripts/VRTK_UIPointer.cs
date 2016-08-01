@@ -90,7 +90,8 @@
             var eventSystemInput = SetEventSystem(eventSystem);
 
             pointerEventData = new PointerEventData(eventSystem);
-            pointerEventData.pointerId = (int)GetComponent<SteamVR_TrackedObject>().index + 1000;
+            var trackedObjectIndex = (GetComponent<SteamVR_TrackedObject>() ? (int)GetComponent<SteamVR_TrackedObject>().index : Random.Range(500, 600));
+            pointerEventData.pointerId = trackedObjectIndex + 1000;
             eventSystemInput.pointers.Add(this);
         }
 
